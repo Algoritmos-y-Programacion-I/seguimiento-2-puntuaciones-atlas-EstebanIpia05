@@ -15,7 +15,10 @@ public class AtlasPuntuaciones {
 	private Scanner escaner;
 
 	// Declaración de nuestras constantes a utilizar
-
+	private static final int
+	MAX_JUG = 10;
+	private static final int
+	MAX_ROND = 5;
 
 	private AtlasPuntuaciones() {
 		escaner = new Scanner(System.in);
@@ -23,9 +26,29 @@ public class AtlasPuntuaciones {
 	
 	
 	public void run()
-	{
+	{	
+		int canjug, canron;
 		// Declaracion de todas las variables a usar en el programa
+		System.out.println("Digite la cantidad de jugadores");
+        canjug = escaner.nextInt();
 
+		System.out.println("Digite la cantidad de rondas");
+        canron = escaner.nextInt();
+
+		int[] puntua = new int [canron];
+		int[] sumaPuntajes = new int [canjug];
+
+		 for (int i = 0; i < canjug; i++){
+			for (int j = 0; j < canron; j++) {
+			System.out.println("Jugador "+ (i+1) + " - puntaje en ronda "+(j+1));
+			System.out.print(">");
+			puntua[i] = escaner.nextInt();
+			
+			}
+			sumaPuntajes[i] = calcularSumaTotal(puntua, canron);
+            System.out.println("Puntaje " + (i+1) + ": " + sumaPuntajes[i]);
+	
+		 }
 
 		// Notificacion al usuario de la solicitud de dato
 
@@ -51,8 +74,14 @@ public class AtlasPuntuaciones {
 	 * @param int[] numeros
 	 * @return 
 	 */
-    public int calcularSumaTotal(int[] numeros) {
-        // Completar
+    public int calcularSumaTotal(int[] numeros, int puntajes) {
+		int suma =0;
+		for (int i = 0; i<puntajes; i++){
+			suma += numeros[i];
+			System.out.println("Resultado de la suma: "+ suma);
+		} 
+
+        return suma;
     }
 
 	/**
@@ -61,7 +90,7 @@ public class AtlasPuntuaciones {
 	 * @return 
 	 */
     public double calcularPromedio(int[] numeros) {
-        // Completar
+        return 0;
     }
 
 	/**
@@ -70,7 +99,7 @@ public class AtlasPuntuaciones {
 	 * @return 
 	 */
     public double encontrarMayor(double[] numeros) {
-        // Completar
+        return 0;
     }
 
 	
